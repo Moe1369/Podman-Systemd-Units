@@ -1,0 +1,18 @@
+[Unit]
+Description=Nextcloud Database
+
+[Container]
+AutoUpdate=registry
+ContainerName=nextcloud-database
+Environment=POSTGRES_DB=nextcloud
+Environment=POSTGRES_USER=nextcloud
+Image=docker.io/library/postgres:15-alpine
+Pod=nextcloud.pod
+Secret=nextcloud-database-password,type=env,target=POSTGRES_PASSWORD
+Volume=nextcloud-database.volume:/var/lib/postgresql/data
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target

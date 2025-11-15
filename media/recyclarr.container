@@ -1,0 +1,17 @@
+[Unit]
+Description=Recyclarr
+
+[Container]
+AutoUpdate=registry
+ContainerName=recyclarr
+Environment=TZ=Europe/Berlin
+Image=ghcr.io/recyclarr/recyclarr:latest
+Pod=media.pod
+Volume=recyclarr-config.volume:/config
+
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,18 @@
+[Unit]
+Description=Jellyseerr Request Manager
+
+[Container]
+AutoUpdate=registry
+ContainerName=jellyseerr
+Environment=TZ=Europe/Berlin
+Environment=JELLYFIN_TYPE=jellyfin
+Image=docker.io/fallenbagel/jellyseerr:latest
+Pod=media.pod
+Volume=jellyseerr-config.volume:/app/config
+Volume=/var/home/administrator/data/arr-suite:/arr-suite:z
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,11 @@
+[Unit]
+Description=Nextcloud Pod
+
+[Pod]
+PodName=nextcloud
+Network=nextcloud.network
+PublishPort=8090:80
+
+[Install]
+WantedBy=default.target
+
